@@ -38,7 +38,7 @@ public class RestaurantService { //nu e DateObject, are obiecte business
         return result;
     }
 
-    public Map<String, List<Restaurant>> mapCityToRestaurant() {
+    public Map<String, List<Restaurant>> mapCityToRestaurants() {
         Map<String, List<Restaurant>> result = new HashMap<>();
         for (Restaurant restaurant : restaurants) {
             List<Restaurant> cityRestaurants = result.get(restaurant.getCity());

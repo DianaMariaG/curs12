@@ -1,0 +1,65 @@
+package ro.fasttrackit.curs12.homework.ex3;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class Company {
+    private final List<Employee> listOfEmployees;
+
+    public Company(List<Employee> listOfEmployees) {
+        if (listOfEmployees == null) {
+            this.listOfEmployees = new ArrayList<>();
+        } else {
+            this.listOfEmployees = new ArrayList<>(listOfEmployees);
+        }
+    }
+
+    public List<Employee> getPersonsWithBiggerSalaries (int minimumSalary) {
+        List<Employee> result = new ArrayList<>();
+        for (Employee employee : listOfEmployees) {
+            if (employee.getSalary() > minimumSalary) {
+                result.add(employee);
+            }
+        }
+        return result;
+    }
+
+    public Map<String, List<Employee>> mapCompanyToEmployee() {
+        Map<String, List<Employee>> result = new HashMap<>();
+        for (Employee employee : listOfEmployees) {
+            List<Employee> allEmployees = result.get(employee.getCompany());
+
+            if (allEmployees == null) {
+                allEmployees = new ArrayList<>();
+                result.put(employee.getCompany(), allEmployees);
+            }
+            allEmployees.add(employee);
+        }
+        return result;
+    }
+
+    public int getSalariesSum() {
+        int salariesSum = 0;
+        for (Employee employee : listOfEmployees) {
+            salariesSum = salariesSum + employee.getSalary();
+        }
+        return salariesSum;
+    }
+
+    public String getCompanyWithBiggestSalary() {
+        String resultCompany = null;
+        int maxSalary = 0;
+        Map<String, List<Employee>> companies = mapCompanyToEmployee();
+        for (Map.Entry<String,List<Employee>> entry : companies.entrySet()) {
+            for (Employee employee : entry.getValue()) {
+                if (maxSalary < employee.getSalary()) {
+                    maxSalary = employee.getSalary();
+                    resultCompany = employee.getCompany();
+                }
+            }
+        }
+        return resultCompany;
+    }
+}

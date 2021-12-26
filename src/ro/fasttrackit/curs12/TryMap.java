@@ -16,24 +16,24 @@ public class TryMap {
         nameToAge.put("Dragos", 54);
         nameToAge.put("Costel", 12);
 
-        System.out.println(nameToAge);
-        System.out.println(nameToAge.get("Ana")); //imi da 30
-        nameToAge.put("Ana",100); //se schimba val din 30 in 100
-        System.out.println(nameToAge.get("Ana"));
+//        System.out.println(nameToAge);
+//        System.out.println(nameToAge.get("Ana")); //imi da 30
+//        nameToAge.put("Ana",100); //se schimba val din 30 in 100
+//        System.out.println(nameToAge.get("Ana"));
+//
+//        nameToAge.remove("Mircea");
+//        System.out.println(nameToAge);
+//
+//        System.out.println(nameToAge.containsKey("Ana"));
+//        System.out.println(nameToAge.containsValue(20));
 
-        nameToAge.remove("Mircea");
-        System.out.println(nameToAge);
-
-        System.out.println(nameToAge.containsKey("Ana"));
-        System.out.println(nameToAge.containsValue(20));
-
-        System.out.println(nameToAge.keySet()); //set cu keys
-        System.out.println(nameToAge.values()); //lista cu toate valorile
+//        System.out.println(nameToAge.keySet()); //set cu keys
+//        System.out.println(nameToAge.values()); //lista cu toate valorile
         Set<Map.Entry<String, Integer>> entries = nameToAge.entrySet();
         System.out.println(entries);
 
-        for(String key : nameToAge.keySet()) {
-            System.out.println(key + " = " + nameToAge.get(key));
+        for(String key : nameToAge.keySet()) { //set de chei
+            System.out.println(key + " = " + nameToAge.get(key)); //returneaza val pt cheiea respectiva
         }
 
         for (Map.Entry<String, Integer> entry : nameToAge.entrySet()) {

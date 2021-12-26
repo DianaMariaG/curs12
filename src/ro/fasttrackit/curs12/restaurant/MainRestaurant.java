@@ -19,6 +19,6 @@ public class MainRestaurant {
         System.out.println(restaurantService.mapNameToCity());
         System.out.println(restaurantService.mapNameToType());
 
-        System.out.println(restaurantService.mapCityToRestaurant());
+
     }
 }

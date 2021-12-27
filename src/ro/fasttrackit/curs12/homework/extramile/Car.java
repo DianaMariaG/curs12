@@ -35,6 +35,7 @@ public class Car {
         return price;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,7 +50,8 @@ public class Car {
     }
 
     @Override
-    public String toString() {
+    public String
+    toString() {
         return "Car{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
@@ -58,3 +60,4 @@ public class Car {
                 '}';
     }
 }
+

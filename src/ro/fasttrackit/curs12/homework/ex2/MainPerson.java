@@ -16,13 +16,13 @@ public class MainPerson {
         Person person5 = new Person("Sofia",67,BLONDE);
         Person person6 = new Person("Peter",40,RED);
 
-        PersonHandler listOfPersone = new PersonHandler(List.of(person1,person2,person3,person4,person5));
-        System.out.println(listOfPersone);
+        PersonHandler persons = new PersonHandler(List.of(person1,person2,person3,person4,person5,person6));
+        System.out.println(persons);
 
-        System.out.println(listOfPersone.getListOfPersonsName());
-        System.out.println(listOfPersone.mapNameToAge());
-        System.out.println(listOfPersone.personsOlderThanGivenAge(30));
-        System.out.println(listOfPersone.mapHairToNames());
-        System.out.println(listOfPersone.mapAgeToListOfPersons());
+        System.out.println(persons.getListOfPersonsName());
+        System.out.println(persons.mapNameToAge());
+        System.out.println(persons.personsOlderThanGivenAge(30));
+        System.out.println(persons.mapHairToNames());
+        System.out.println(persons.mapAgeToListOfPersons());
     }
 }

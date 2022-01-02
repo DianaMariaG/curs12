@@ -2,6 +2,7 @@ package ro.fasttrackit.curs12.homework.ex4;
 
 import ro.fasttrackit.curs12.homework.ex2.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DaySchedule {
@@ -10,7 +11,11 @@ public class DaySchedule {
 
     public DaySchedule(WeekDays weekDays, List<String> activities) {
         this.weekDays = weekDays;
-        this.activities = activities;
+        if (activities == null) {
+            this.activities = new ArrayList<>();
+        } else {
+            this.activities = new ArrayList<>(activities);
+        }
     }
 
     public WeekDays getWeekDays() {

@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.Map;
 
 public class Company {
-    private final List<Employee> listOfEmployees;
+    private final List<Employee> employees;
 
     public Company(List<Employee> listOfEmployees) {
         if (listOfEmployees == null) {
-            this.listOfEmployees = new ArrayList<>();
+            this.employees = new ArrayList<>();
         } else {
-            this.listOfEmployees = new ArrayList<>(listOfEmployees);
+            this.employees = new ArrayList<>(listOfEmployees);
         }
     }
 
     public List<Employee> getPersonsWithBiggerSalaries (int minimumSalary) {
         List<Employee> result = new ArrayList<>();
-        for (Employee employee : listOfEmployees) {
+        for (Employee employee : employees) {
             if (employee.getSalary() > minimumSalary) {
                 result.add(employee);
             }
@@ -28,7 +28,7 @@ public class Company {
 
     public Map<String, List<Employee>> mapCompanyToEmployee() {
         Map<String, List<Employee>> result = new HashMap<>();
-        for (Employee employee : listOfEmployees) {
+        for (Employee employee : employees) {
             List<Employee> allEmployees = result.get(employee.getCompany());
 
             if (allEmployees == null) {
@@ -42,7 +42,7 @@ public class Company {
 
     public int getSalariesSum() {
         int salariesSum = 0;
-        for (Employee employee : listOfEmployees) {
+        for (Employee employee : employees) {
             salariesSum = salariesSum + employee.getSalary();
         }
         return salariesSum;
@@ -51,13 +51,10 @@ public class Company {
     public String getCompanyWithBiggestSalary() {
         String resultCompany = null;
         int maxSalary = 0;
-        Map<String, List<Employee>> companies = mapCompanyToEmployee();
-        for (Map.Entry<String,List<Employee>> entry : companies.entrySet()) {
-            for (Employee employee : entry.getValue()) {
-                if (maxSalary < employee.getSalary()) {
-                    maxSalary = employee.getSalary();
-                    resultCompany = employee.getCompany();
-                }
+        for (Employee employee : employees) {
+            if (maxSalary < employee.getSalary()) {
+                maxSalary = employee.getSalary();
+                resultCompany = employee.getCompany();
             }
         }
         return resultCompany;

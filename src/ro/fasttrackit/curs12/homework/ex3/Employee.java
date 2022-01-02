@@ -17,19 +17,7 @@ public class Employee extends Person {
         this.company = ensureNotEmpty(company);
         this.salary = positiveValue(salary);
     }
-
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-    @Override
-    public int getAge() {
-        return super.getAge();
-    }
-    @Override
-    public HairColours getHairColour() {
-        return super.getHairColour();
-    }
+    
     public String getCompany() {
         return company;
     }
